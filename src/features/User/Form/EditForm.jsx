@@ -84,7 +84,12 @@ const EditForm = ({ userData, onClose }) => {
         <Button variant="default" onClick={handleCancel}>
           Cancel
         </Button>
-        <Button variant="gradient" type="submit" disabled={isSubmitting}>
+        <Button
+          variant="gradient"
+          type="submit"
+          disabled={isSubmitting}
+          loading={isSubmitting}
+        >
           submit
         </Button>
       </div>

@@ -43,6 +43,7 @@ const DeleteForm = ({ user, close }) => {
         type="submit"
         onClick={handleSubmit(handleDelete)}
         disabled={isSubmitting}
+        loading={isSubmitting}
       >
         Confirm Delete
       </Button>
