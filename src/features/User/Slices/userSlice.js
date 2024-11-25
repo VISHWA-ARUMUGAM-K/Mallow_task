@@ -53,8 +53,12 @@ export const userSlice = createSlice({
         state.filteredUsers = state.users;
       } else {
         // If search term is provided, filter items
-        state.filteredUsers = state.users.filter((item) =>
-          item.first_name.toLowerCase().includes(action.payload.toLowerCase())
+        state.filteredUsers = state.users.filter(
+          (item) =>
+            item.first_name
+              .toLowerCase()
+              .includes(action.payload.toLowerCase()) ||
+            item.last_name.toLowerCase().includes(action.payload.toLowerCase())
         );
       }
       state.currentPage = 1; // Reset to the first page when the search term changes
