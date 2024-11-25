@@ -67,8 +67,8 @@ const LoginForm = () => {
           <div className="text-red-500">{errors.password.message}</div>
         )}
         <Checkbox defaultChecked label="Remember me" />
-        <Button type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Loading" : "Login"}
+        <Button type="submit" disabled={isSubmitting} loading={isSubmitting}>
+          Login
         </Button>
         {errors.root && (
           <div className="text-red-500">{errors.root.message}</div>
