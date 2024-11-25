@@ -120,7 +120,7 @@ const UserList = () => {
           <div>Something went wrong...</div>
         ) : (
           <>
-            {view == "table" && paginateUsers().length && !usersLoading && (
+            {view == "table" && paginateUsers().length > 0 && !usersLoading && (
               <TableView
                 users={paginateUsers}
                 totalPages={totalPages}
@@ -129,7 +129,7 @@ const UserList = () => {
                 pageNumbers={pageNumbers}
               />
             )}
-            {view == "list" && paginateUsers().length && !usersLoading && (
+            {view == "list" && paginateUsers().length > 0 && !usersLoading && (
               <ListView
                 users={paginateUsers}
                 totalPages={totalPages}
