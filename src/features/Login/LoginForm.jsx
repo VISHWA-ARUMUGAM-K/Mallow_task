@@ -5,12 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFormData } from "../../store/authSlice";
 import { useLoginUserMutation } from "./Slices/authApiSlice";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const inputRef = useRef(null);
   const [loginUser, { isLoading, isSuccess, isError, error }] =
     useLoginUserMutation();
+  //TODO need to remove this during refactoring
   const formData = useSelector((state) => state.auth.formData);
   const { register, handleSubmit } = useForm();
 
@@ -25,6 +28,10 @@ const LoginForm = () => {
       });
   };
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <div className="bg-custom-grey flex items-center justify-center min-h-screen">
       <form
@@ -35,6 +42,7 @@ const LoginForm = () => {
           leftSection={<User />}
           placeholder="Enter your Email"
           {...register("email")}
+          ref={inputRef}
         />
         <PasswordInput
           leftSection={<LockKeyhole />}
