@@ -118,6 +118,8 @@ const UserList = () => {
           <div>Loading...</div>
         ) : userError ? (
           <div>Something went wrong...</div>
+        ) : paginateUsers().length <= 0 ? (
+          <div>No Users found unfortunately</div>
         ) : (
           <>
             {view == "table" && paginateUsers().length > 0 && !usersLoading && (
