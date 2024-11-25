@@ -1,6 +1,6 @@
 import { Button, Modal, TextInput } from "@mantine/core";
 import { Grid3X3, List, Search } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGetUsersQuery } from "./Slices/userApiSlice";
 import TableView from "./components/TableView";
 import ListView from "./components/ListView";
@@ -20,6 +20,7 @@ import {
 //TODO: Need to make a pagination
 const UserList = () => {
   const dispatch = useDispatch();
+  const inputRef = useRef(null);
   const [view, setView] = useState("table");
   const { data, error, isLoading } = useGetUsersQuery();
   const [opened, { open, close }] = useDisclosure(false);
@@ -73,6 +74,10 @@ const UserList = () => {
     }
   }, [data, isLoading, error, dispatch]);
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <div className="bg-custom-grey p-4">
       <div className="flex flex-col justify-center gap-y-8 bg-white p-6">
@@ -84,6 +89,7 @@ const UserList = () => {
               placeholder="Input Search Here"
               value={searchTerm}
               onChange={handleSearch}
+              ref={inputRef}
             />
             <Modal opened={opened} onClose={close} title="Create New User">
               <UserForm onClose={close} />
