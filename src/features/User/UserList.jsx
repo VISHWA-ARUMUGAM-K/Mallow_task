@@ -1,5 +1,5 @@
 import { Button, Modal, TextInput } from "@mantine/core";
-import { Grid3X3, List, Search } from "lucide-react";
+import { Grid3X3, List, Loader, Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useGetUsersQuery } from "./Slices/userApiSlice";
 import TableView from "./components/TableView";
@@ -115,11 +115,17 @@ const UserList = () => {
         </div>
 
         {usersLoading ? (
-          <div>Loading...</div>
+          <div className="flex justify-center">
+            <Loader color="blue"></Loader>
+          </div>
         ) : userError ? (
-          <div>Something went wrong...</div>
+          <div className="flex justify-center text-blue-500 ">
+            Something went wrong
+          </div>
         ) : paginateUsers().length <= 0 ? (
-          <div>No Users found unfortunately</div>
+          <div className="flex justify-center text-blue-500">
+            No users found
+          </div>
         ) : (
           <>
             {view == "table" && paginateUsers().length > 0 && !usersLoading && (
