@@ -32,6 +32,7 @@ const EditForm = ({ userData, onClose }) => {
     >
       <div className="flex flex-col gap-1 ">
         <TextInput
+          data-autofocus
           label="First Name"
           withAsterisk
           placeholder="Please enter your first name"

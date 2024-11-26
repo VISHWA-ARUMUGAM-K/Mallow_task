@@ -24,6 +24,7 @@ const DeleteForm = ({ user, close }) => {
         deletion
       </Text>
       <TextInput
+        data-autofocus
         {...register("confirmDelete", {
           required: "Need confirmation word",
           validate: (value) => {
