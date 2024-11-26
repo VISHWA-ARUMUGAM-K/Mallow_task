@@ -37,6 +37,7 @@ export const userSlice = createSlice({
         }
         return person;
       });
+      state.users = state.filteredUsers;
     },
 
     deleteUser: (state, action) => {
