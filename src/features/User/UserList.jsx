@@ -17,7 +17,6 @@ import {
   setView,
 } from "./Slices/userSlice";
 
-//TODO: store in redux after testing
 const UserList = () => {
   const dispatch = useDispatch();
   const inputRef = useRef(null);
@@ -53,17 +52,17 @@ const UserList = () => {
 
   useEffect(() => {
     if (isLoading) {
-      dispatch(setLoading(true)); // Set loading state
+      dispatch(setLoading(true));
     } else {
-      dispatch(setLoading(false)); // Set loading state to false
+      dispatch(setLoading(false));
     }
 
     if (error) {
       dispatch(setError(error));
-    } // Set error if there's any
+    }
 
     if (data) {
-      dispatch(setUsers(data.data)); // Save users data to Redux state
+      dispatch(setUsers(data.data));
     }
   }, [data, isLoading, error, dispatch]);
 

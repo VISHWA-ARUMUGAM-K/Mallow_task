@@ -4,11 +4,6 @@ const authApiSlice = reqresApi.injectEndpoints({
     getUsers: builder.query({
       query: () => "/users",
     }),
-
-    //testing
-    createUser: builder.mutation({
-      query: (data) => ({ url: `/register`, method: "POST", body: data }),
-    }),
   }),
 });
 

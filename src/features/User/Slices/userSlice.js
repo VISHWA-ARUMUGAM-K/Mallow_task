@@ -47,14 +47,15 @@ export const userSlice = createSlice({
       state.users = state.filteredUsers;
     },
 
-    // search and pagination
+    // SEARCH & PAGINATION
+
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
       if (action.payload.trim() === "") {
-        // If search term is empty, show all items
+        // if empty show all users
         state.filteredUsers = state.users;
       } else {
-        // If search term is provided, filter items
+        // if search term is provided then show from this filtered users
         state.filteredUsers = state.users.filter(
           (item) =>
             item.first_name
@@ -63,7 +64,8 @@ export const userSlice = createSlice({
             item.last_name.toLowerCase().includes(action.payload.toLowerCase())
         );
       }
-      state.currentPage = 1; // Reset to the first page when the search term changes
+      // Reset to the first page when the search term changes
+      state.currentPage = 1;
     },
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
@@ -96,10 +98,3 @@ export const selectFilteredUsers = (state) => state.users.filteredUsers;
 export const selectSearchTerm = (state) => state.users.searchTerm;
 export const getCurrentPage = (state) => state.users.currentPage;
 export const getPageSize = (state) => state.users.pageSize;
-
-// export const selectPaginatedUsers = (state) => {
-//   const { filteredUsers, currentPage, pageSize } = state.users;
-//   const startIndex = (currentPage - 1) * pageSize;
-//   const endIndex = startIndex + pageSize;
-//   return filteredUsers.slice(startIndex, endIndex);
-// };
