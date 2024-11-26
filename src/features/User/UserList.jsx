@@ -17,7 +17,6 @@ import {
 } from "./Slices/userSlice";
 
 //TODO: store in redux after testing
-//TODO: Need to make a pagination
 const UserList = () => {
   const dispatch = useDispatch();
   const inputRef = useRef(null);
@@ -29,10 +28,6 @@ const UserList = () => {
   const { filteredUsers, currentPage, pageSize, searchTerm } = useSelector(
     (state) => state.users
   );
-
-  const { myItems } = useSelector((state) => state.users);
-
-  console.log(myItems);
 
   const handleView = (option) => {
     if (option === view) return;

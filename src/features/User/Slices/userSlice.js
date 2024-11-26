@@ -8,7 +8,6 @@ const initialState = {
   pageSize: 4,
   isLoading: false,
   error: null,
-  myItems: [],
 };
 
 export const userSlice = createSlice({
@@ -26,6 +25,7 @@ export const userSlice = createSlice({
       state.error = action.payload;
     },
     createUser: (state, action) => {
+      state.users.push(action.payload);
       state.filteredUsers.push(action.payload);
     },
     updateUser: (state, action) => {
@@ -43,6 +43,7 @@ export const userSlice = createSlice({
       state.filteredUsers = state.filteredUsers.filter((person) => {
         return person.id !== id;
       });
+      state.users = state.filteredUsers;
     },
 
     // search and pagination
