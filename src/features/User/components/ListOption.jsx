@@ -8,7 +8,7 @@ const ListOption = ({ user }) => {
   const [opened2, { open: open2, close: close2 }] = useDisclosure(false);
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center gap-20 hover:opacity-1">
+    <div className=" hidden group-hover:flex absolute inset-0  items-center justify-center gap-20 hover:bg-gray-300 hover:bg-opacity-35">
       <Modal opened={opened} onClose={close} title="Edit User Form">
         <EditForm userData={user} onClose={close} />
       </Modal>

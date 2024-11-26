@@ -19,7 +19,7 @@ const ListView = ({
               withBorder
               p="lg"
               bg="var(--mantine-color-body)"
-              className="relative h-min flex-1  "
+              className="group relative h-min flex-1  "
               key={user.id}
               onMouseEnter={() => setHoveredId(user.id)}
             >
