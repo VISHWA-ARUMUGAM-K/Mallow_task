@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="mainContainer">
       <Routes>
-        <Route path="/" element={<LoginForm />} />
-        <Route path="/users" element={<UserList />} />
+        <Route path="/Mallow_task" element={<LoginForm />} />
+        <Route path="/Mallow_task/users" element={<UserList />} />
       </Routes>
     </div>
   );

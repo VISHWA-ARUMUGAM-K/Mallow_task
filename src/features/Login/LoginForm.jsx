@@ -25,7 +25,7 @@ const LoginForm = () => {
       .then((action) => {
         if (!action.token.length) return;
         localStorage.setItem("accessToken", action.token);
-        navigate("/users");
+        navigate("/Mallow_task/users");
         dispatch(setFormData({ email: data.email }));
       })
       .catch(() => {
