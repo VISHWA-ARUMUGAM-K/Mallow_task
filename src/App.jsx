@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="mainContainer">
       <Routes>
-        <Route path="/Mallow_task" element={<LoginForm />} />
+        <Route path="/Mallow_task/" element={<LoginForm />} />
         <Route path="/Mallow_task/users" element={<UserList />} />
       </Routes>
     </div>
