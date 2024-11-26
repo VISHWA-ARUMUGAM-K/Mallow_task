@@ -16,10 +16,10 @@ createRoot(document.getElementById("root")).render(
       <Provider store={store}>
         <Router>
           <Routes>
-            <Route path="/*" element={<App />} />
+            <Route path="/Mallow_task" element={<App />} />
           </Routes>
         </Router>
       </Provider>
     </MantineProvider>
-  </StrictMode>
+  </StrictMode>,
 );
