@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { setFormData } from "../../store/authSlice";
 import { useLoginUserMutation } from "./Slices/authApiSlice";
 import { useNavigate } from "react-router-dom";
-import { validateEmail } from "./utils/validation";
+import { validateEmail } from "../../utils/commonValidations";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="bg-custom-grey flex items-center justify-center min-h-screen">
+    <div className="bg-custom-grey flex items-center justify-center min-h-screen p-5">
       <form
         className="flex flex-col justify-center gap-y-5 w-[500px] bg-white p-8"
         onSubmit={handleSubmit(onSubmit)}
