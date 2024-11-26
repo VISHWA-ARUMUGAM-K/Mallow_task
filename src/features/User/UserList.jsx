@@ -14,24 +14,22 @@ import {
   setUsers,
   setCurrentPage,
   setSearchTerm,
+  setView,
 } from "./Slices/userSlice";
 
 //TODO: store in redux after testing
 const UserList = () => {
   const dispatch = useDispatch();
   const inputRef = useRef(null);
-  const [view, setView] = useState("table");
   const { data, error, isLoading } = useGetUsersQuery();
   const [opened, { open, close }] = useDisclosure(false);
   const { isLoading: usersLoading, error: userError } =
     useSelector(getAllUsers);
-  const { filteredUsers, currentPage, pageSize, searchTerm } = useSelector(
-    (state) => state.users
-  );
+  const { filteredUsers, currentPage, pageSize, searchTerm, view } =
+    useSelector((state) => state.users);
 
   const handleView = (option) => {
-    if (option === view) return;
-    setView(option);
+    dispatch(setView(option));
   };
 
   //TODO: Need to use usedeferredvalue here

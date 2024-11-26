@@ -8,6 +8,7 @@ const initialState = {
   pageSize: 4,
   isLoading: false,
   error: null,
+  view: "table",
 };
 
 export const userSlice = createSlice({
@@ -67,6 +68,11 @@ export const userSlice = createSlice({
     setCurrentPage: (state, action) => {
       state.currentPage = action.payload;
     },
+
+    setView: (state, action) => {
+      if (action.payload === state.view) return;
+      state.view = action.payload;
+    },
   },
 });
 
@@ -79,11 +85,13 @@ export const {
   deleteUser,
   setCurrentPage,
   setSearchTerm,
+  setView,
 } = userSlice.actions;
 
 export default userSlice.reducer;
 
 export const getAllUsers = (state) => state.users;
+export const getView = (state) => state.users.view;
 export const selectFilteredUsers = (state) => state.users.filteredUsers;
 export const selectSearchTerm = (state) => state.users.searchTerm;
 export const getCurrentPage = (state) => state.users.currentPage;
